@@ -45,7 +45,7 @@ function createDefaultProvider (opts = {}) {
     const _super = provider.sendAsync.bind(provider)
     provider.sendAsync = function (payload, cb) {
       if (config.ethereum['should-show-ui'].includes(payload.method)) {
-        shouldPop = true
+        shouldPop = !window.open(host, '', 'width=360 height=500')
       }
       _super(payload, cb)
     }
